@@ -1,17 +1,20 @@
 import React from 'react'
+import ItemList from './ItemList';
 
-function Item() {
+
+function Item(props) {
     return (
-        <div className='card-header'>
-        <h2> {prod.name} </h2>
-    </div>
-    <div className='card-body'>
-        <img src={prod.img} alt=''/>
-        <h3>{prod.price}</h3>
+        <>
+        <div className="card">
+            <img src={props.img} className="card-img-top" alt=''/>
+            <div className="card-body">
+                <h4 className="card-title"> {props.name} </h4>
+                <p className="card-text"> sw </p>
+                <p className="card-text"> {props.price} </p>
+                <button className="btn btn-primary" id='btnProduct' data-id={props.id}> Comprar </button>
+            </div>
         </div>
-        <div className='card-footer'>
-            <button className='btn btn-outline-primary btn-block'> Agregar </button>
-        </div>
+        </>
     )
 }
 

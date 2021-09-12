@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './styles/style.scss'
-import reportWebVitals from './reportWebVitals';
 
 
 ReactDOM.render(
@@ -12,4 +11,3 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-reportWebVitals();
