@@ -1,4 +1,5 @@
 import React from 'react'
+import 'react-bootstrap'
 import '../styles/style.scss'
 
 

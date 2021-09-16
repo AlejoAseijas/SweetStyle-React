@@ -1,15 +1,18 @@
-import React from 'react'
-import ItemList  from './ItemList'
+import React,{useEffect} from 'react'
 import Item from './Item'
 
 function ItemListContainer(loadingState) {
     return (
         <>
-        <ItemList></ItemList>
-        <h1>Cargando...</h1>
-        <Item></Item>
+         {useEffect(() => {
+       loadingState.props ?
+       <h1>Cargando...</h1>
+       :
+     <Item> </Item>    
+    }, [])}
         </>
     )
 }
+
 
 export default ItemListContainer

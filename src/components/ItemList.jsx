@@ -7,7 +7,7 @@ const productos =[
         "size": "1,2",
         "price": 200,
         "img": "https://http2.mlstatic.com/D_NQ_NP_804479-MLA47448482453_092021-O.webp",
-        "stock": 4,
+        "stock": 0,
         "available": true,
         "id": "S001",
         "categoria":"summer2021"
@@ -23,11 +23,11 @@ const productos =[
         "categoria":"summer2021"
     },
     {
-        "name": "Remera Crepe Rayada",
+        "name": "Remera Crepe ",
         "size": "1,2",
         "price": 200,
         "img": "https://http2.mlstatic.com/D_NQ_NP_804479-MLA47448482453_092021-O.webp",
-        "stock": 4,
+        "stock": 40,
         "available": true,
         "id": "S003",
         "categoria":"summer2021"
@@ -53,7 +53,8 @@ function ItemList() {
     
     return (
         <>
-        {product.map((productToCard)=> <Item name={productToCard.name} price={productToCard.price} img={productToCard.img} id={productToCard.id}></Item> )}
+        {product.map((productToCard)=> <Item name={productToCard.name} price={productToCard.price} img={productToCard.img} id={productToCard.id} size={productToCard.size} stock={productToCard.stock}></Item> )}
+        <ItemListContainer props={loading}></ItemListContainer>
         </>
     )
 }

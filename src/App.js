@@ -1,18 +1,17 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import NavBar from "./components/NavBar"
-import ItemListContainer from './components/ItemListContainer'
-import Item from "./components/Item"
+import ItemList from "./components/ItemList"
 
 
 
 function App() {
   return (
-    <div>
+    <>
       <Router>
       <NavBar></NavBar>
-      <ItemListContainer></ItemListContainer>
+      <main><div id='publicaciones'><ItemList></ItemList></div></main>
       </Router>
-    </div>
+    </>
   )
 }
 

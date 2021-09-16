@@ -49,3 +49,76 @@ header .bg-light {
 
 .navbar-light .navbar-nav #active {
   background-color: #ef8354; }
+
+#cartLogo {
+  list-style: none; }
+
+main {
+  display: flex;
+  justify-items: center;
+  width: auto;
+  height: auto; }
+
+main .seccion h3 {
+  font-size: 28px;
+  font-weight: none;
+  font-style: oblique;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-bottom: 10px; }
+
+main #publicaciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  max-width: 1200px;
+  margin-top: 20px;
+  margin-left: 60px; }
+
+main .card {
+  width: 18rem;
+  margin-bottom: 30px;
+  margin-right: 2vw; }
+
+.card-body {
+  text-align: center; }
+
+.card {
+  position: relative;
+  width: 50%; }
+
+.card-img-top {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden; }
+
+.card-body {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center; }
+
+.card:hover .card-img-top {
+  opacity: 0.3; }
+
+.card:hover .card-body {
+  opacity: 1; }
+
+.card-title {
+  font-family: 'Architects Daughter', cursive; }
+
+.card-text {
+  font-family: 'Architects Daughter', cursive; }
+
+#controlsOfAmount {
+  margin: 10px; }
+  #controlsOfAmount p {
+    display: inline;
+    margin: 0px 5px 0px 5px; }
