@@ -1,8 +1,9 @@
 import React from 'react'
 import ItemCount from './ItemCount';
+import {useParams} from 'react-router-dom'
 
 function ItemDetail(productSelected) {
-    console.log(productSelected.props);
+    //console.log(productSelected.props);
     return (
         <>
            <div className="card">
