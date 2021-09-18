@@ -5,11 +5,8 @@ function ItemCount(props) {
     function onAdd(e){
 
         if(e.target.id==='add'){
-          if(props.stock>0 && count<props.stock){
+          if(count<props.stock){
               setCount(count+1)
-          }
-          if(props.stock===0){
-              alert('No hay stock');
           }
         }
         if(e.target.id==='less'){

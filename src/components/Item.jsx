@@ -9,7 +9,7 @@ function Item(props) {
                     <h4 className="card-title"> {props.name} </h4>
                     <p className="card-text"> {props.size} </p>
                     <p className="card-text"> {props.price} </p>
-                    <button className="btn btn-primary" id='btnProduct' data-id={props.id}> Comprar </button>
+                    <button className="btn btn-primary" id='btnProduct' data-id={props.id}> Detalle </button>
                     <ItemCount id={props.id} stock={props.stock}></ItemCount>
                 </div>
             </div>

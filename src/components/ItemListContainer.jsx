@@ -8,8 +8,8 @@ function ItemListContainer(loadingState) {
        loadingState.props ?
        <h1>Cargando...</h1>
        :
-     <Item> </Item>    
-    }, [])}
+     <Item> </Item> 
+    }, [loadingState])}  
         </>
     )
 }

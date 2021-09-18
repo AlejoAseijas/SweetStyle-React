@@ -1,12 +1,13 @@
 import React from 'react'
 import CartWidget from './CartWidget'
+import { NavLink, Link} from 'react-router-dom'
 
 
 function NavBar() {
     return (
       <header>
           <div className='header__title'>
-              <h1>Sweet-Style</h1>
+              <h1><Link to='/'> Sweet-Style </Link></h1>
               <h2>Ropa & Accesorios</h2>
           </div>
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -17,25 +18,25 @@ function NavBar() {
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
              <ul className="navbar-nav me-auto mb-2 mb-lg-0" id="menu">
                 <li className="nav-item">
-                    <a className="nav-link" href="pages/pantalones.html">Pantalones</a>
+                    <NavLink to='/category/pantalones' className='nav-link' activeClassName='active'> Pantalones </NavLink> 
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="pages/remeras.html">Remeras</a>
+                <NavLink to='/category/remeras' className='nav-link' activeClassName='active'> Remeras </NavLink> 
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="pages/buzos.html">Buzos</a>
+                <NavLink to='/category/buzos' className='nav-link' activeClassName='active'> Buzos </NavLink> 
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="pages/vestidos.html">Vestidos</a>
+                <NavLink to='/category/vestidos' className='nav-link' activeClassName='active'> Vestidos </NavLink> 
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="pages/shorts.html">Shorts</a>
+                <NavLink to='/category/shorts' className='nav-link' activeClassName='active'> Shorts </NavLink> 
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="pages/contacto.html">Contacto</a>
+                <NavLink to='/category/contacto' className='nav-link' activeClassName='active'> Contacto </NavLink> 
                 </li>
+                <CartWidget/>
             </ul>
-            <CartWidget/>
         </div>
     </div>
 </nav>

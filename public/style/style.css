@@ -47,7 +47,7 @@ header .bg-light {
 .navbar-light .navbar-nav .nav-link:hover {
   background-color: #ef8354; }
 
-.navbar-light .navbar-nav #active {
+.navbar-light .navbar-nav .active {
   background-color: #ef8354; }
 
 #cartLogo {
