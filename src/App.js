@@ -5,6 +5,7 @@ import ItemList from "./components/ItemList"
 import Footer from "./components/Footer"
 import Cart from "./components/Cart"
 import ItemDetailContainer from './components/ItemDetailContainer'
+import Contact from "./components/Contact"
 
 
 
@@ -22,6 +23,7 @@ function App() {
           <main> <div id='publicaciones'> <ItemList></ItemList> </div> </main>
           </Route>
           <Route exact path='/item/:id' component={ItemDetailContainer} ></Route>
+          <Route exact path='/category/contacto' component={Contact}></Route>
         </Switch>
       <Footer/>
       </Router>
