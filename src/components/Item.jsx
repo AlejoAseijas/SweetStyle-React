@@ -1,10 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import ItemCount from './ItemCount';
-//import ItemDetailContainer from './ItemDetailContainer';
+
 
 function Item(product) {
-    
     return (
         <>
                 <div className="card">
