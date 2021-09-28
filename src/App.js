@@ -6,15 +6,12 @@ import Footer from "./components/Footer"
 import Cart from "./components/Cart"
 import ItemDetailContainer from './components/ItemDetailContainer'
 import Contact from "./components/Contact"
-import { cart_contex } from "./context/cartContext"
+import { CartContext } from "./context/cartContext"
 
-//
 function App() {
-  const cart_contex = useContext([])
-  console.log(cart_contex);
   return (
     <>
-    <cart_contex.Provider>
+    <CartContext>
       <Router>
       <NavBar/>
         <Switch>
@@ -30,7 +27,7 @@ function App() {
         </Switch>
       <Footer/>
       </Router>
-    </cart_contex.Provider>
+      </CartContext>
     </>
   )
 }

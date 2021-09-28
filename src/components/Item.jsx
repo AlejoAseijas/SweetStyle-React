@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import ItemCount from './ItemCount';
 
 
 function Item(product) {
@@ -15,7 +14,6 @@ function Item(product) {
                     <Link to={`/item/${product.id}`}> 
                     <button className="btn btn-primary" id='btnProduct' data-id={product.id}> Detalle </button>
                     </Link>
-                    <ItemCount id={product.id} stock={product.stock}></ItemCount>
                 </div>
             </div>
         </>
