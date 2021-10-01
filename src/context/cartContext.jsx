@@ -9,13 +9,32 @@ export const CartContext =({children})=>{
 
     const [cart, setCart] = useState([])
 
-    function addItem(item,quantily){ 
-        if(isInCart(item)){
-            alert('El producto ya esta en el carrito')
-        }else{
-            setCart([...cart,{item,quantily}])
-        }
+    function isInCart(itemId,qty){
+       cart.map((element)=>{
+           console.log(element);
+           if(element.itemId === itemId){
+               alert('Producto ya existente en el cart')
+           }
+           else{
+            setCart([...cart,{itemId,qty}])
+           }
+       })
     }
+
+    function addItem(item,quantily){ 
+      isInCart(item,quantily)
+    
+    }
+
+    /*
+     if (item === cart.map((element)=>element.item)) {
+            alert('Producto existente')
+        }
+        else{
+           
+            
+        }
+    */ 
 
     function removeItem(itemId){
         setCart()
@@ -24,13 +43,6 @@ export const CartContext =({children})=>{
     function clear(){
         setCart({})
     }
-   console.log('carrito',cart);
-
-   function isInCart(id){
-     
-    cart.find(element => element.item === id)
-  }
-
     return(
         <cart_context.Provider value={{addItem,removeItem, clear}}>
             {children}
