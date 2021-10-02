@@ -1,55 +1,63 @@
-import React,{createContext, useState, useContext} from "react"
-export const cart_context = createContext([])
+import { useState, createContext, useContext } from "react"
 
-export const CartContextUse = () =>{
-    return useContext(cart_context)
-}
+const cartContext = createContext()//crear una sola vez
 
-export const CartContext =({children})=>{
+export const useCartContext = () =>  useContext(cartContext)  
 
-    const [cart, setCart] = useState([])
+export const CartContext =({ children })=>{
 
-    function isInCart(itemId,qty){
-       cart.map((element)=>{
-           console.log(element);
-           if(element.itemId === itemId){
-               alert('Producto ya existente en el cart')
-           }
-           else{
-            setCart([...cart,{itemId,qty}])
-           }
-       })
+    const [cartList, setCartList] = useState([])
+
+
+    const agregarItem = (item, cantidad) => {
+
+        const index = cartList.findIndex(i => i.item.id === item.id)//pos    -1
+  
+          if (index > -1) {
+            const oldQy = cartList[index].quantity
+  
+            cartList.splice(index, 1)
+            setCartList([...cartList, { item, quantity: cantidad + oldQy}])
+          } else {
+            setCartList([...cartList, {item: item, quantity: cantidad}])
+          }
+      }
+
+
+    const deleteFromCart = (item) => {
+    //Verificamos si esta en el carrito   
+    const deleteProduct = cartList.filter((prod) => prod.item.id !== item.item.id);
+
+    setCartList([...deleteProduct]);
+    };   
+
+    const iconCart = () => {
+        return cartList.reduce( (acum, valor)=> acum + valor.quantity, 0)         
     }
 
-    function addItem(item,quantily){ 
-      isInCart(item,quantily)
+    const precioTotal =()=>{
+        return cartList.reduce((acum, valor)=>(acum + (valor.quantity * valor.item.price)), 0) 
+      }
+
     
-    }
-
-    /*
-     if (item === cart.map((element)=>element.item)) {
-            alert('Producto existente')
-        }
-        else{
-           
-            
-        }
-    */ 
-
-    function removeItem(itemId){
-        setCart()
+    const vaciarCarrito=()=>{
+        setCartList([])
     }
     
-    function clear(){
-        setCart({})
-    }
+    console.log(cartList)
+    
     return(
-        <cart_context.Provider value={{addItem,removeItem, clear}}>
+        <cartContext.Provider value={{
+            cartList,
+            agregarItem,
+            vaciarCarrito,
+            iconCart,
+            deleteFromCart,
+            precioTotal
+            //mostrarPersona
+        }} >
             {children}
-        </cart_context.Provider>
+        </cartContext.Provider>
     )
-    
-    }
-   
-
+}
 

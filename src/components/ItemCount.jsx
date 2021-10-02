@@ -1,39 +1,52 @@
-import React,{useEffect, useState} from 'react'
-import {CartContextUse} from '../context/cartContext'
-import {Link} from 'react-router-dom'
-let buttonState = 'Añadir al carrito'
+import {useState} from 'react'
+import { Link } from 'react-router-dom'
 
-function ItemCount(productToCart) {
-    const {addItem} = CartContextUse();
-    const [count, setCount] = useState(0)
- 
+const ItemCount = ({stock, initial, onAdd}) => {
+    const [count, setCount] = useState(initial)
+    const [cambiarBoton, setCambiarBoton] = useState(true)
+    
 
-    function handlerClick(productInfo){
-        addItem(productToCart.id, count)
-        buttonState=  <Link to={ `/cart`}> Terminar Compra </Link>
+    function sumar(){
+        if(count < stock){
+            setCount(count + 1)        
+
+        }
     }
 
-    function onAdd(e){
+    function restar(){
+        if (count>1) {
+            setCount(count - 1)            
+        }
+    }
 
-        if(e.target.id==='add'){
-          if(count<productToCart.stock){
-              setCount(count+1)
-          }
-        }
-        if(e.target.id==='less'){
-            if(count > 0) setCount(count-1)
-        }
+    const agregarCarrito=()=>{
+        onAdd(count)
+        setCambiarBoton(false)
     }
 
     return (
-        <div id='controlsOfAmount'>
-        <button type="button" class="btn btn-primary"  id='add' onClick={onAdd} data-id={productToCart.id}>+</button>
-        <p for="formGroupExampleInput" class="form-label">{count}</p>
-        <button type="button" class="btn btn-primary" id='less' onClick={onAdd}>-</button>
-        <div> <button className="btn btn-primary" id='btnProduct'  onClick={handlerClick}> {buttonState} </button> </div>
-    </div>
+        <div>
+            <button onClick={sumar}>+</button>
+            <label>{count}</label>
+            <button onClick={restar}>-</button>
+            <br/>
+           {cambiarBoton ?
+                <button onClick={agregarCarrito} >Agregar Al carrito</button>                
+            : 
+            <div>
+                <Link to="/cart" >
+                    <button >Terminar Compra</button>            
+                </Link>
+                <Link to="/" >
+                    <button >Seguir Comprando</button>      
+                </Link>
+            </div>
+            
+            }
+            
+            
+        </div>
     )
 }
 
 export default ItemCount
-

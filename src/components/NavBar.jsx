@@ -1,11 +1,16 @@
-import React from 'react'
-import CartWidget from './CartWidget'
-import { NavLink, Link} from 'react-router-dom'
+// import { Navbar, Container, Nav } from 'react-bootstrap'
+import {Link, NavLink} from 'react-router-dom'
+import Navbar from 'react-bootstrap/Navbar'
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import { useCartContext } from '../context/cartContext'
 
 
-function NavBar() {
-    return (
-      <header>
+export const NavBar = ()=>{
+
+    const { iconCart } = useCartContext()
+    return <>
+     <header>
           <div className='header__title'>
               <h1><Link to='/'> Sweet-Style </Link></h1>
               <h2>Ropa & Accesorios</h2>
@@ -35,13 +40,11 @@ function NavBar() {
                 <li className="nav-item">
                 <NavLink to='/category/contacto' className='nav-link' activeClassName='active'> Contacto </NavLink> 
                 </li>
-                <CartWidget/>
             </ul>
         </div>
     </div>
 </nav>
       </header>
-    )
-}
+        </>
 
-export default NavBar
+}

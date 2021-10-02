@@ -1,22 +1,32 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
+import { useContext } from 'react'
+import { Link } from "react-router-dom"
 
 
-function Item(product) {
-    return (
-        <>
-                <div className="card">
-                <img src={product.img} className="card-img-top" alt=''/>
-                <div className="card-body">
-                    <h4 className="card-title"> {product.name} </h4>
-                    <p className="card-text"> {product.size} </p>
-                    <p className="card-text"> {product.price} </p>
-                    <Link to={`/item/${product.id}`}> 
-                    <button className="btn btn-primary" id='btnProduct' data-id={product.id}> Detalle </button>
-                    </Link>
+
+const Item = ({product}) => {
+
+    console.log('soy item');
+
+    return (       
+            <div key={product.id} className="card w-50 mt-5" >
+                    <div className="card-header">
+                        {product.title}
+                    </div>
+                    <div className="card-body">
+                        <img src={product.imgaeID} alt="foto" />
+                        {product.age}
+                       
+                    </div>
+                    <div className="card-footer">
+                        <Link to = {`/detalle/${product.id}`} >
+                            <button className="btn btn-outline-primary btn-block">
+                                detalle de product
+                            </button>
+                        </Link>
+                    </div>
+                    
                 </div>
-            </div>
-        </>
+        
     )
 }
 

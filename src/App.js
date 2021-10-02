@@ -1,39 +1,51 @@
-import React,{useState,useContext} from "react"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import NavBar from "./components/NavBar"
-import ItemList from "./components/ItemList"
-import Footer from "./components/Footer"
-import Cart from "./components/Cart"
-import ItemDetailContainer from './components/ItemDetailContainer'
-import Contact from "./components/Contact"
-import { CartContext } from "./context/cartContext"
+import {useState, createContext, useContext } from 'react'
 
-function App() {
-  return (
-    <>
-    <CartContext>
-      <Router>
-      <NavBar/>
-        <Switch>
-          <Route exact path='/'>
-            <main> <div id='publicaciones'> <ItemList></ItemList> </div> </main>
-          </Route>
-          <Route exact path='/cart' component={Cart} />
-          <Route exact path='/category/:idCategory'> 
-          <main> <div id='publicaciones'> <ItemList></ItemList> </div> </main>
-          </Route>
-          <Route exact path='/item/:id' component={ItemDetailContainer} ></Route>
-          <Route exact path='/category/contacto' component={Contact}></Route>
-        </Switch>
-      <Footer/>
-      </Router>
-      </CartContext>
-    </>
-  )
+import {NavBar} from './components/NavBar'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import ItemListContainer from './components/ItemListContainer';
+import Cart from './components/Cart';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import { CartContext } from './context/cartContext';
+import Footer from './components/Footer'
+export const  ContextApp = createContext('Fede')//se crea una sola vez
+
+
+export default function App() {
+    const [state, setState] = useState('load')
+
+    function states(){
+        alert(state)
+    }
+    
+    
+
+    return (
+
+        <div>
+            
+            <CartContext>
+                <ContextApp.Provider value={{state, states}} >
+                    
+                    <Router>
+                        <NavBar />
+
+                        <Switch>
+                        <Route path='/' exact component={ItemListContainer} />
+                        
+                        <Route path='/category/:idCategory' exact component={ItemListContainer} />
+                        
+                        <Route path='/detalle/:idProducto' exact component={ItemDetailContainer } />
+                        
+                        <Route exact path='/cart'>              
+                            <Cart  />
+                        </Route>
+
+                        </Switch>
+                    <Footer/>
+                    </Router> 
+                </ContextApp.Provider>
+            </CartContext>             
+        </div>
+    );
 }
 
-export default App
-
-/*
- 
-*/

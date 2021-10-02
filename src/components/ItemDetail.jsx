@@ -1,21 +1,27 @@
-import React,{useContext} from 'react'
-import ItemCount from './ItemCount';
+import React from 'react'
+import ItemCount from "./ItemCount";
 
-function ItemDetail(productSelected) {
+import {useCartContext} from '../context/cartContext'
 
+const ItemDetail = ({ prod }) => {
+    
+    const  {agregarItem} = useCartContext()
+
+
+    
+    const onAdd=(cant)=>{
+        agregarItem( prod, cant )
+   
+    }  
 
 
     return (
         <>
-           <div className="card">
-                <img src={productSelected.props.img} className="card-img-top" alt=''/>
-                <div className="card-body">
-                    <h4 className="card-title"> {productSelected.props.name} </h4>
-                    <p className="card-text"> {productSelected.props.size} </p>
-                    <p className="card-text"> {productSelected.props.price} </p>
-                    <ItemCount id={productSelected.props.id} stock={productSelected.props.stock}></ItemCount>
-                </div>
-            </div>
+            <h2>{prod.name}</h2>
+            <h2>{prod.age}</h2>
+            <img src={prod.foto} alt="foto"  />
+
+            <ItemCount initial={1} stock={5} onAdd={onAdd} />         
         </>
     )
 }
