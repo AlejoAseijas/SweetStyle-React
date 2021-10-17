@@ -1,28 +1,21 @@
-import firebase from 'firebase'
+import firebase from "firebase";
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDAbsuglfAYlDf2GKx1XeAvWspUT9q-wJE",
-  authDomain: "sweetstylereact.firebaseapp.com",
-  projectId: "sweetstylereact",
-  storageBucket: "sweetstylereact.appspot.com",
-  messagingSenderId: "782198088841",
-  appId: "1:782198088841:web:5019e56b8809ec21f71258"
+  apiKey: "AIzaSyA-H6gT0XH23zRYhrc4Ydhoi9ukwpu_-kQ",
+  authDomain: "sweetstylereact-49ab2.firebaseapp.com",
+  projectId: "sweetstylereact-49ab2",
+  storageBucket: "sweetstylereact-49ab2.appspot.com",
+  messagingSenderId: "466884822281",
+  appId: "1:466884822281:web:79aa33d21f8ab58d43bfd8",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+export function getFirebase() {
+  return app;
+}
 
-    export function getFirebase(){
-        return app
-    }
-
-
-    export function getFirestore(){
-        
-        return firebase.firestore(app)
-    }
+export function getFirestore() {
+  return firebase.firestore(app);
+}
