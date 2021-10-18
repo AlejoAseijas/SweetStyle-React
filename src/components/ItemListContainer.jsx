@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getFirestore } from "../services/getFirebase";
 import ItemList from "./ItemList";
+import "../styles/itemListContainer.scss";
 
 function ItemListContainer({ greeting }) {
   const [product, setProduct] = useState([]);
@@ -23,7 +24,7 @@ function ItemListContainer({ greeting }) {
   }, [idCategory]);
 
   return (
-    <div>
+    <div className="container" id="itemListC">
       <h1> {greeting}</h1>
       {loading ? <h2>Cargando...</h2> : <ItemList data={product} />}
     </div>
