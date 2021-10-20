@@ -97,7 +97,9 @@ export const NavBar = () => {
                     activeClassName="active"
                   >
                     <img src={cartLogo} alt="cartLogo" id="cartLogo" />
-                    <iconCart />
+                    <p>
+                      <iconCart />
+                    </p>
                   </NavLink>
                 </li>
               </ul>

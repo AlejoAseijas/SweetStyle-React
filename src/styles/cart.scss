@@ -1,0 +1,14 @@
+#root {
+  #conatinerProducts {
+    border: 1px solid black;
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .card {
+    img {
+      height: 280px;
+    }
+  }
+}

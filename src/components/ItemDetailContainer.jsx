@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import ItemCount from "./ItemCount";
 import { useCartContext } from "../context/cartContext";
+import "../styles/itemDetail.scss";
 
 const ItemDetailContainer = () => {
   const { agregarItem } = useCartContext();
@@ -20,10 +21,10 @@ const ItemDetailContainer = () => {
 
   return prod.map((data) => {
     return (
-      <div className="container">
+      <div className="container" id="item">
         <h2>{data.name}</h2>
-        <h2>{data.price}</h2>
         <img src={data.img} alt="foto" />
+        <h2>{data.price} $</h2>
         <ItemCount initial={1} stock={data.stock} onAdd={onAdd} />
       </div>
     );
