@@ -12,24 +12,15 @@ export const CartContext = ({ children }) => {
       quantity: cantidad,
     };
     setCartList([...cartList, products]);
-    console.log(cartList, "ok");
   };
 
   const deleteFromCart = (id) => {
-    //const deleteProduct = cartList.filter((prod) => prod.item.id !== id);
-    // setCartList([deleteProduct]);
-    console.log("borrar");
+    const deleteProduct = cartList.filter((prod) => prod.item.id !== id);
+    setCartList([deleteProduct]);
   };
 
   const iconCart = () => {
     return cartList.reduce((acum, valor) => acum + valor.quantity, 0);
-  };
-
-  const precioTotal = () => {
-    return cartList.reduce(
-      (acum, valor) => acum + valor.quantity * valor.item.price,
-      0
-    );
   };
 
   const vaciarCarrito = () => {
@@ -44,7 +35,6 @@ export const CartContext = ({ children }) => {
         vaciarCarrito,
         iconCart,
         deleteFromCart,
-        precioTotal,
       }}
     >
       {children}

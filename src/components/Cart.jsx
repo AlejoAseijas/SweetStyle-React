@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "../context/cartContext";
 import "../styles/cart.scss";
+import CheckOut from "./CheckOut";
 
 const Cart = ({ condition = true }) => {
   const { cartList, vaciarCarrito, deleteFromCart } = useCartContext();
@@ -34,6 +35,7 @@ const Cart = ({ condition = true }) => {
             )}
           </div>
           <button onClick={() => vaciarCarrito()}>Vaciar Carrito</button>
+          <CheckOut />
         </>
       )}
     </>
